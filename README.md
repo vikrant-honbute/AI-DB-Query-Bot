@@ -1,552 +1,280 @@
-🗂️ AI DB Query Bot — Chat With Your SQL Databases
+# 🗂️ **AI DB Query Bot — Chat With Your SQL Databases**
 
+A Streamlit-based AI assistant that lets you **chat with your SQL data** using natural language.
 
-
-A Streamlit-based AI assistant that lets you \*\*chat with your SQL data\*\*.  
-
-It connects either to a local \*\*SQLite `student.db`\*\* file or to a \*\*MySQL database\*\*, and uses a Groq LLM-powered LangChain agent to interpret natural-language questions and generate SQL queries behind the scenes.
-
-
+It connects either to a local **SQLite `student.db`** or your own **MySQL database**, and uses a Groq LLM-powered LangChain SQL agent to generate SQL queries automatically.
 
 ---
 
+# 🚀 **Features**
 
+### 📁 **Dual DB Mode**
+- Use a local **SQLite 3** database (`student.db`)
+- Or connect to your own **MySQL** database via sidebar
 
-\## 🚀 Features
+### 🤖 **LLM-Powered SQL Agent**
+- Powered by **ChatGroq (llama-3.3-70b-versatile)**
+- Uses **create_sql_agent** + **SQLDatabaseToolkit**
 
+### 💬 **Smart Chat Interface**
+- Streamlit **chat-style UI**
+- Maintains **conversation history** with `st.session_state`
 
+### 🔌 **Secure & Safe DB Access**
+- SQLite opened in **read-only** mode  
+- MySQL credentials entered securely from the sidebar
 
-\- 📁 \*\*Dual DB Mode\*\*
-
-&nbsp; - Use a local \*\*SQLite 3\*\* database (`student.db`)
-
-&nbsp; - Or connect to your own \*\*MySQL\*\* database from the sidebar
-
-\- 🤖 \*\*LLM-Powered SQL Agent\*\*
-
-&nbsp; - Uses `ChatGroq` with the \*\*llama-3.3-70b-versatile\*\* model
-
-&nbsp; - Built with `create\_sql\_agent` and `SQLDatabaseToolkit`
-
-\- 💬 \*\*Chat Interface\*\*
-
-&nbsp; - Streamlit chat-style UI (`st.chat\_message`, `st.chat\_input`)
-
-&nbsp; - Keeps \*\*conversation history\*\* in `st.session\_state`
-
-\- 🔌 \*\*Safe DB Access\*\*
-
-&nbsp; - SQLite is opened in \*\*read-only\*\* mode
-
-&nbsp; - MySQL credentials are entered securely via sidebar
-
-\- ⚡ \*\*Streaming Responses\*\*
-
-&nbsp; - Uses `StreamlitCallbackHandler` for streaming agent output
-
-
+### ⚡ **Streaming Responses**
+- Real-time outputs via `StreamlitCallbackHandler`
 
 ---
 
+# 🖼️ **Demo / Screenshot (Placeholder)**
 
+Replace with your actual app screenshot.
 
-\## 🖼️ Demo / Screenshot (Placeholder)
-
-
-
-> Replace this with a real screenshot from your app.
-
-
-
-```text
-
+```
 +--------------------------------------------------------+
-
 | 🗂️ AI DB Query Bot                                    |
-
 +--------------------------------------------------------+
-
 |  Sidebar:                                              |
-
-|  \[x] Use SQLite 3 Database - student.db                |
-
-|  \[ ] Connect to your MySQL Database                    |
-
-|  GROQ API Key: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*                         |
-
+|  [x] Use SQLite 3 Database - student.db                |
+|  [ ] Connect to your MySQL Database                    |
+|  GROQ API Key: ***************                         |
 +--------------------------------------------------------+
-
 |  Assistant: How can I help you?                        |
-
 |  User: Show top 5 students with highest marks.         |
-
 |  Assistant: SELECT name, marks FROM ...                |
-
 +--------------------------------------------------------+
+```
 
+---
 
+# 🧱 **Tech Stack**
 
-
-
-
-
-
-
-\## 🧱 Tech Stack
-
-
-
-| Layer            | Technology/Library                           |
-
+| Layer            | Technology / Library                          |
 |------------------|-----------------------------------------------|
-
-| UI               | Streamlit                                     |
-
-| LLM              | Groq ChatGroq (llama-3.3-70b-versatile)       |
-
-| Agent            | LangChain Classic `create\_sql\_agent`          |
-
-| Toolkit          | SQLDatabaseToolkit                           |
-
-| DB Abstraction   | SQLDatabase                                   |
-
-| Databases        | SQLite (`student.db`), MySQL                  |
-
-| ORM / Engine     | SQLAlchemy                                    |
-
-| Others           | sqlite3, pathlib.Path                         |
-
-
+| **UI**           | Streamlit                                     |
+| **LLM**          | Groq ChatGroq (llama-3.3-70b-versatile)        |
+| **Agent**        | LangChain Classic `create_sql_agent`           |
+| **Toolkit**      | SQLDatabaseToolkit                           |
+| **DB Layer**     | SQLDatabase                                   |
+| **Databases**    | SQLite (`student.db`), MySQL                  |
+| **ORM/Engine**   | SQLAlchemy                                    |
+| **Other**        | sqlite3, pathlib.Path                         |
 
 ---
 
+# 📦 **Installation**
 
+_Requires Python **3.10+**_
 
-\## 📦 Installation
+---
 
-
-
-These commands assume you have \*\*Python 3.10+\*\* installed.
-
-
-
-\### 1️⃣ Clone the repository
-
-
+## **1️⃣ Clone the repository**
 
 ```bash
-
 git clone https://github.com/yourusername/ai-db-query-bot.git
-
 cd ai-db-query-bot
-
-
-
-\## 2️⃣ Create and activate a virtual environment
-
-
-
-\### Windows (CMD/PowerShell):
-
-```bash
-
-python -m venv venv
-
-venv\\Scripts\\activate
-
 ```
 
+---
 
+## **2️⃣ Create and activate a virtual environment**
 
-\### macOS / Linux:
-
+### 🔹 Windows (CMD / PowerShell)
 ```bash
-
 python -m venv venv
+venv\Scripts\activate
+```
 
+### 🔹 macOS / Linux
+```bash
+python -m venv venv
 source venv/bin/activate
-
 ```
-
-
 
 ---
 
-
-
-\## 3️⃣ Install dependencies
-
-
+## **3️⃣ Install dependencies**
 
 ```bash
-
 pip install -r requirements.txt
-
 ```
 
-
-
-\### A minimal `requirements.txt` for this app would include:
-
-
+### Minimal `requirements.txt`:
 
 ```
-
 streamlit
-
 langchain-community
-
 langchain-classic
-
 langchain-groq
-
 sqlalchemy
-
 mysql-connector-python
-
 ```
-
-
-
-(Plus anything else you already use in your environment.)
-
-
 
 ---
 
-
-
-\## 4️⃣ Make sure `student.db` exists
-
-
-
-Place your `student.db` file in the same directory as `app.py`:
-
-
+## **4️⃣ Ensure `student.db` exists**
 
 ```
-
 ai-db-query-bot/
-
 ├── app.py
-
 └── student.db
-
 ```
 
+---
 
+# 🔑 **Configuration / Credentials**
+
+All configuration is done **inside the Streamlit sidebar**.
+
+### 🧠 **Groq API Key**
+- Required  
+- Enter it in the field: **“GRoq API Key”**
+
+### 🗄️ **MySQL Connection Details** (if selected)
+- Host  
+- User  
+- Password  
+- Database name  
+
+### 🪶 **SQLite Mode**
+SQLite runs in **read-only mode** for safety.
 
 ---
 
+# 📘 **How to Use**
 
-
-\## 🔑 Configuration / Credentials
-
-
-
-This app does not read environment variables directly.  
-
-All credentials are entered via the \*\*Streamlit sidebar\*\*.
-
-
-
-\### 🧠 Groq API Key  
-
-\- Required  
-
-\- Entered in the field: \*\*"GRoq API Key"\*\*
-
-
-
-\### 🗄️ MySQL Connection Details (only if you choose the MySQL option):
-
-\- Host (e.g., localhost or server IP)  
-
-\- User  
-
-\- Password  
-
-\- Database name  
-
-
-
-\### SQLite Mode  
-
-For SQLite mode, the app automatically uses `student.db` located next to `app.py` and opens it in \*\*read-only mode\*\*.
-
-
-
----
-
-
-
-\## 📘 How to Use
-
-
-
-\### Start the app:
-
+## ▶️ Start the app
 ```bash
-
 streamlit run app.py
-
 ```
 
+---
 
-
-\### In the sidebar:
-
-
+## 📌 In the Sidebar:
 
 Choose one:
 
+### **✔ SQLite Mode**
+- Use SQLLite 3 Database – `student.db`
 
+### **✔ MySQL Mode**
+- Provide MySQL Host  
+- MYSQL User  
+- MYSQL Password  
+- MySQL Database  
 
-\- \*\*Use SQLLite 3 Database – Student.db\*\* (local SQLite)
-
-\- \*\*Connect to your MySQL Database\*\* (your own MySQL DB)
-
-
-
-If using MySQL, fill:
-
-
-
-\- Provide MySQL Host  
-
-\- MYSQL User  
-
-\- MYSQL password  
-
-\- MySQL database  
-
-
-
-Enter your \*\*Groq API Key\*\*.
-
-
+Then enter your **Groq API Key**.
 
 ---
 
+## 💬 Chat Examples
 
+Ask natural-language questions like:
 
-\### The chat area will show:
+- “Show the top 5 students with highest marks”  
+- “How many students are enrolled in each course?”  
+- “List all students from the Computer Science department”  
 
-> “How can I help you?”
+The agent will:
 
+- Interpret your question  
+- Generate SQL automatically  
+- Execute on DB  
+- Return results in clean text  
 
-
----
-
-
-
-\### Example natural-language questions:
-
-
-
-\- “Show the top 5 students with highest marks”
-
-\- “How many students are enrolled in each course?”
-
-\- “List all students from the Computer Science department”
-
-
+Use **“Clear message history”** to reset the chat.
 
 ---
 
-
-
-\### The agent will:
-
-
-
-\- Interpret your question  
-
-\- Generate SQL queries using `create\_sql\_agent` + `SQLDatabaseToolkit`  
-
-\- Execute them against the selected database  
-
-\- Return the answer in plain text in the chat  
-
-
-
-Use the \*\*“Clear message history”\*\* button to reset the chat.
-
-
+# 🧩 **Important Code Pieces**
 
 ---
 
-
-
-\## 🧩 Important Code Pieces
-
-
-
-\### 1️⃣ LLM Initialization
+## **1️⃣ LLM Initialization**
 
 ```python
-
 llm = ChatGroq(
-
-&nbsp;   groq\_api\_key=api\_key,
-
-&nbsp;   model\_name="llama-3.3-70b-versatile",
-
-&nbsp;   streaming=True,
-
+    groq_api_key=api_key,
+    model_name="llama-3.3-70b-versatile",
+    streaming=True,
 )
-
 ```
-
-
 
 ---
 
-
-
-\### 2️⃣ Database Configuration (SQLite \& MySQL)
+## **2️⃣ Database Configuration (SQLite & MySQL)**
 
 ```python
-
-@st.cache\_resource(ttl="2h")
-
-def configure\_db(db\_uri, mysql\_host=None, mysql\_user=None, mysql\_password=None, mysql\_db=None):
-
-&nbsp;   if db\_uri == LOCALDB:
-
-&nbsp;       dbfilepath = (Path(\_\_file\_\_).parent / "student.db").absolute()
-
-&nbsp;       creator = lambda: sqlite3.connect(f"file:{dbfilepath}?mode=ro", uri=True)
-
-&nbsp;       return SQLDatabase(create\_engine("sqlite:///", creator=creator))
-
-&nbsp;   elif db\_uri == MYSQL:
-
-&nbsp;       if not (mysql\_host and mysql\_user and mysql\_password and mysql\_db):
-
-&nbsp;           st.error("Please provide all MySQL connection details.")
-
-&nbsp;           st.stop()
-
-&nbsp;       return SQLDatabase(
-
-&nbsp;           create\_engine(f"mysql+mysqlconnector://{mysql\_user}:{mysql\_password}@{mysql\_host}/{mysql\_db}")
-
-&nbsp;       )
-
+@st.cache_resource(ttl="2h")
+def configure_db(db_uri, mysql_host=None, mysql_user=None, mysql_password=None, mysql_db=None):
+    if db_uri == LOCALDB:
+        dbfilepath = (Path(__file__).parent / "student.db").absolute()
+        creator = lambda: sqlite3.connect(f"file:{dbfilepath}?mode=ro", uri=True)
+        return SQLDatabase(create_engine("sqlite:///", creator=creator))
+    elif db_uri == MYSQL:
+        if not (mysql_host and mysql_user and mysql_password and mysql_db):
+            st.error("Please provide all MySQL connection details.")
+            st.stop()
+        return SQLDatabase(
+            create_engine(f"mysql+mysqlconnector://{mysql_user}:{mysql_password}@{mysql_host}/{mysql_db}")
+        )
 ```
-
-
 
 ---
 
-
-
-\### 3️⃣ Agent Creation
+## **3️⃣ Agent Creation**
 
 ```python
-
 toolkit = SQLDatabaseToolkit(db=db, llm=llm)
 
-
-
-agent = create\_sql\_agent(
-
-&nbsp;   llm=llm,
-
-&nbsp;   toolkit=toolkit,
-
-&nbsp;   verbose=True,
-
-&nbsp;   agent\_type=AgentType.ZERO\_SHOT\_REACT\_DESCRIPTION,
-
+agent = create_sql_agent(
+    llm=llm,
+    toolkit=toolkit,
+    verbose=True,
+    agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
 )
-
 ```
-
-
 
 ---
 
-
-
-\### 4️⃣ Chat Loop
+## **4️⃣ Chat Loop**
 
 ```python
+if "messages" not in st.session_state or st.sidebar.button("Clear message history"):
+    st.session_state["messages"] = [{"role": "assistant", "content": "How can I help you?"}]
 
-if "messages" not in st.session\_state or st.sidebar.button("Clear message history"):
+for msg in st.session_state.messages:
+    st.chat_message(msg["role"]).write(msg["content"])
 
-&nbsp;   st.session\_state\["messages"] = \[{"role": "assistant", "content": "How can I help you?"}]
+user_query = st.chat_input(placeholder="Ask anything from the database")
 
+if user_query:
+    st.session_state.messages.append({"role": "user", "content": user_query})
+    st.chat_message("user").write(user_query)
 
-
-for msg in st.session\_state.messages:
-
-&nbsp;   st.chat\_message(msg\["role"]).write(msg\["content"])
-
-
-
-user\_query = st.chat\_input(placeholder="Ask anything from the database")
-
-
-
-if user\_query:
-
-&nbsp;   st.session\_state.messages.append({"role": "user", "content": user\_query})
-
-&nbsp;   st.chat\_message("user").write(user\_query)
-
-
-
-&nbsp;   with st.chat\_message("assistant"):
-
-&nbsp;       streamlit\_callback = StreamlitCallbackHandler(st.container())
-
-&nbsp;       response = agent.run(user\_query, callbacks=\[streamlit\_callback])
-
-&nbsp;       st.session\_state.messages.append({"role": "assistant", "content": response})
-
-&nbsp;       st.write(response)
-
+    with st.chat_message("assistant"):
+        streamlit_callback = StreamlitCallbackHandler(st.container())
+        response = agent.run(user_query, callbacks=[streamlit_callback])
+        st.session_state.messages.append({"role": "assistant", "content": response})
+        st.write(response)
 ```
-
-
 
 ---
 
-
-
-\## 📝 License
-
-
-
-Add your preferred license here, for example:
-
-
+# 📝 **License**
 
 ```
-
 MIT License
-
 ```
-
-
 
 ---
 
+# 🙌 **Credits**
 
-
-\## 🙌 Credits
-
-
-
-\- App logic \& UI built with \*\*Streamlit\*\*  
-
-\- SQL agent logic powered by \*\*LangChain Classic\*\* (`create\_sql\_agent`, `SQLDatabaseToolkit`)  
-
-\- LLM responses powered by \*\*Groq ChatGroq\*\*
-
-
-
-
+- UI created with **Streamlit**  
+- SQL Agent powered by **LangChain Classic**  
+- LLM inference via **Groq ChatGroq**  
 
