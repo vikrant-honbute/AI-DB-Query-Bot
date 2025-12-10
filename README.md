@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 \# 🗂️ AI DB Query Bot — Chat With Your SQL Databases
+=======
+# 🗂️ **AI DB Query Bot — Chat With Your SQL Databases**
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 
 A Streamlit-based AI assistant that lets you **chat with your SQL data** using natural language.
 
@@ -9,6 +13,7 @@ It connects either to a local **SQLite `student.db`** or your own **MySQL databa
 # 🚀 **Features**
 
 ### 📁 **Dual DB Mode**
+<<<<<<< HEAD
 
 - Use a local **SQLite 3** database (`student.db`)
 - Or connect to your own **MySQL** database via sidebar
@@ -30,6 +35,24 @@ It connects either to a local **SQLite `student.db`** or your own **MySQL databa
 
 ### ⚡ **Streaming Responses**
 
+=======
+- Use a local **SQLite 3** database (`student.db`)
+- Or connect to your own **MySQL** database via sidebar
+
+### 🤖 **LLM-Powered SQL Agent**
+- Powered by **ChatGroq (llama-3.3-70b-versatile)**
+- Uses **create_sql_agent** + **SQLDatabaseToolkit**
+
+### 💬 **Smart Chat Interface**
+- Streamlit **chat-style UI**
+- Maintains **conversation history** with `st.session_state`
+
+### 🔌 **Secure & Safe DB Access**
+- SQLite opened in **read-only** mode  
+- MySQL credentials entered securely from the sidebar
+
+### ⚡ **Streaming Responses**
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 - Real-time outputs via `StreamlitCallbackHandler`
 
 ---
@@ -52,6 +75,7 @@ Replace with your actual app screenshot.
 |  Assistant: SELECT name, marks FROM ...                |
 +--------------------------------------------------------+
 ```
+<<<<<<< HEAD
 
 ---
 
@@ -75,6 +99,31 @@ Replace with your actual app screenshot.
 _Requires Python **3.10+**_
 
 ---
+=======
+
+---
+
+# 🧱 **Tech Stack**
+
+| Layer            | Technology / Library                          |
+|------------------|-----------------------------------------------|
+| **UI**           | Streamlit                                     |
+| **LLM**          | Groq ChatGroq (llama-3.3-70b-versatile)        |
+| **Agent**        | LangChain Classic `create_sql_agent`           |
+| **Toolkit**      | SQLDatabaseToolkit                           |
+| **DB Layer**     | SQLDatabase                                   |
+| **Databases**    | SQLite (`student.db`), MySQL                  |
+| **ORM/Engine**   | SQLAlchemy                                    |
+| **Other**        | sqlite3, pathlib.Path                         |
+
+---
+
+# 📦 **Installation**
+
+_Requires Python **3.10+**_
+
+---
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 
 ## **1️⃣ Clone the repository**
 
@@ -88,14 +137,20 @@ cd ai-db-query-bot
 ## **2️⃣ Create and activate a virtual environment**
 
 ### 🔹 Windows (CMD / PowerShell)
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
 ### 🔹 macOS / Linux
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 ```bash
 python -m venv venv
 source venv/bin/activate
@@ -137,6 +192,7 @@ ai-db-query-bot/
 All configuration is done **inside the Streamlit sidebar**.
 
 ### 🧠 **Groq API Key**
+<<<<<<< HEAD
 
 - Required
 - Enter it in the field: **“GRoq API Key”**
@@ -150,6 +206,18 @@ All configuration is done **inside the Streamlit sidebar**.
 
 ### 🪶 **SQLite Mode**
 
+=======
+- Required  
+- Enter it in the field: **“GRoq API Key”**
+
+### 🗄️ **MySQL Connection Details** (if selected)
+- Host  
+- User  
+- Password  
+- Database name  
+
+### 🪶 **SQLite Mode**
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 SQLite runs in **read-only mode** for safety.
 
 ---
@@ -157,7 +225,10 @@ SQLite runs in **read-only mode** for safety.
 # 📘 **How to Use**
 
 ## ▶️ Start the app
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 ```bash
 streamlit run app.py
 ```
@@ -169,6 +240,7 @@ streamlit run app.py
 Choose one:
 
 ### **✔ SQLite Mode**
+<<<<<<< HEAD
 
 - Use SQLLite 3 Database – `student.db`
 
@@ -179,6 +251,16 @@ Choose one:
 - MYSQL Password
 - MySQL Database
 
+=======
+- Use SQLLite 3 Database – `student.db`
+
+### **✔ MySQL Mode**
+- Provide MySQL Host  
+- MYSQL User  
+- MYSQL Password  
+- MySQL Database  
+
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 Then enter your **Groq API Key**.
 
 ---
@@ -187,6 +269,7 @@ Then enter your **Groq API Key**.
 
 Ask natural-language questions like:
 
+<<<<<<< HEAD
 - “Show the top 5 students with highest marks”
 - “How many students are enrolled in each course?”
 - “List all students from the Computer Science department”
@@ -197,6 +280,18 @@ The agent will:
 - Generate SQL automatically
 - Execute on DB
 - Return results in clean text
+=======
+- “Show the top 5 students with highest marks”  
+- “How many students are enrolled in each course?”  
+- “List all students from the Computer Science department”  
+
+The agent will:
+
+- Interpret your question  
+- Generate SQL automatically  
+- Execute on DB  
+- Return results in clean text  
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
 
 Use **“Clear message history”** to reset the chat.
 
@@ -287,6 +382,13 @@ MIT License
 
 # 🙌 **Credits**
 
+<<<<<<< HEAD
 - UI created with **Streamlit**
 - SQL Agent powered by **LangChain Classic**
 - LLM inference via **Groq ChatGroq**
+=======
+- UI created with **Streamlit**  
+- SQL Agent powered by **LangChain Classic**  
+- LLM inference via **Groq ChatGroq**  
+
+>>>>>>> d9e3c3c5aacfaa1f8dfa756b2eb3f9ec49e12e02
