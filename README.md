@@ -1,4 +1,4 @@
-# 🗂️ **AI DB Query Bot — Chat With Your SQL Databases**
+\# 🗂️ AI DB Query Bot — Chat With Your SQL Databases
 
 A Streamlit-based AI assistant that lets you **chat with your SQL data** using natural language.
 
