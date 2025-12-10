@@ -1,4 +1,4 @@
-\# 🗂️ AI DB Query Bot — Chat With Your SQL Databases
+🗂️ AI DB Query Bot — Chat With Your SQL Databases
 
 
 
